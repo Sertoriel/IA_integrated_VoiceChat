@@ -112,8 +112,7 @@ git lfs --version
 ##
 
 ### 📜 Licença
-Este projeto está sob a licença MIT - veja [LICENSE](LICENSE) para detalhes.
-
+Soon!!!
 ##
 
 ### 🌟 Estatísticas do Projeto
