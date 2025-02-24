@@ -1,0 +1,6 @@
+torch
+transformers
+sentencepiece
+pyttsx3
+SpeechRecognition
+python-dotenv
