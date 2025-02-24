@@ -1,8 +1,5 @@
 ```markdown
-# 🤖 IA Integraded Voice Assistant (GPT-3.5 + DeepSeek) 🎤
-
-[![Python 3.13](https://img.shields.io/badge/Python-3.13-green.svg)](https://www.python.org/)
-[![GitHub stars](https://img.shields.io/github/stars/seu-usuario/IA_integrated_VoiceChat?style=social)](https://github.com/seu-usuario/IA_integrated_VoiceChat)
+🤖 IA Integraded Voice Assistant (GPT-3.5 + DeepSeek) 🎤
 
 **Um assistente de voz inteligente que combina GPT-3.5 e DeepSeek para interações naturais!**  
 Fale com sua IA usando comandos de voz e receba respostas em tempo real. Perfeito para automação doméstica, estudos ou apenas diversão! 🚀
