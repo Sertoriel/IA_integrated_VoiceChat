@@ -1,4 +1,3 @@
-```markdown
 ### 🤖 IA Voice Assistant (GPT-3.5 + DeepSeek) 🎤
 
 <div align="center">
