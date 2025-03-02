@@ -37,3 +37,4 @@ tqdm==4.67.1
 transformers==4.49.0
 typing_extensions==4.12.2
 urllib3==2.3.0
+customtkinter==5.2.2
