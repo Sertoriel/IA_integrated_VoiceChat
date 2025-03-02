@@ -8,6 +8,10 @@ class VoiceEngine:
         self.engine.setProperty('rate', 180)
         self.recognizer = sr.Recognizer()
         self.microphone = sr.Microphone()
+        self.is_active = True
+        
+    def stop(self):
+        self.is_active = False 
 
     def speak(self, text):
         """Fala o texto fornecido."""

@@ -1,5 +1,7 @@
 from deepseek_local import DeepSeekLocal
 from voice_interface import VoiceEngine
+from interface import VoiceAssistantGUI
+import tkinter as tk
 
 def main():
     print("Iniciando VoiceGPT com DeepSeek Local...")
@@ -34,4 +36,6 @@ def main():
         voice.speak(response)
 
 if __name__ == "__main__":
-    main()
+    root = tk.Tk()
+    app = VoiceAssistantGUI(root)
+    root.mainloop()
