@@ -46,8 +46,8 @@ class DeepSeekLocal:
                 
             print("Modelo carregado com sucesso!")
 
-    def generate_response(self, prompt):
-        """Gera uma resposta com base no prompt."""
+    def generate_response(self, question):
+        """Gera uma resposta com base na pergunta."""
         self.load_model()
         
         # Configuração do tokenizer
@@ -56,7 +56,7 @@ class DeepSeekLocal:
         
         # Tokenização com atenção ao dispositivo
         inputs = self.tokenizer(
-            prompt,
+            question,
             return_tensors="pt",
             padding=True,
             truncation=True

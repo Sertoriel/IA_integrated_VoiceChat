@@ -3,11 +3,7 @@ from voice_interface import VoiceEngine
 from interface import VoiceAssistantGUI
 import tkinter as tk
 
-def main():
-    print("Iniciando VoiceGPT com DeepSeek Local...")
-    ai = DeepSeekLocal()
-    voice = VoiceEngine()
-
+def start_voice_assistant(ai, voice):
     while True:
         print("Diga 'Book' para começar...")
         voice.speak("Diga Book para começar")
@@ -35,7 +31,17 @@ def main():
         print(f"Assistente: {response}")
         voice.speak(response)
 
+def main():
+    print("Iniciando VoiceGPT com DeepSeek Local...")
+    ai = DeepSeekLocal()
+    voice = VoiceEngine()
+    start_voice_assistant(ai, voice)
+
 if __name__ == "__main__":
-    root = tk.Tk()
-    app = VoiceAssistantGUI(root)
-    root.mainloop()
+    try:
+        root = tk.Tk()
+        app = VoiceAssistantGUI(root)
+        app.set_ai(DeepSeekLocal())  # Passa a instância do AI para a GUI
+        root.mainloop()
+    except Exception as e:
+        print(f"Ocorreu um erro: {e}")

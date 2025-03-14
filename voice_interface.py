@@ -5,7 +5,6 @@ import time
 class VoiceEngine:
     def __init__(self):
         self.engine = pyttsx3.init()
-        self.engine.setProperty('rate', 180)
         self.recognizer = sr.Recognizer()
         self.microphone = sr.Microphone()
         self.is_active = True
@@ -28,6 +27,10 @@ class VoiceEngine:
                 return self.recognizer.recognize_google(audio, language='pt-BR')
             except sr.WaitTimeoutError:
                 return "timeout"
+            except sr.UnknownValueError:
+                return "error"
+            except sr.RequestError:
+                return "error"
             except Exception as e:
                 print(f"Erro no reconhecimento: {e}")
                 return "error"

@@ -10,6 +10,7 @@ class VoiceAssistantGUI:
         self.root = root
         self.root.title("Painel de Controle - IA Voice Assistant")
         self.root.geometry("800x600")
+        self.activation_word = "Book"
         
         # Inicializa componentes principais
         self.ai = DeepSeekLocal()
@@ -53,6 +54,18 @@ class VoiceAssistantGUI:
         ttk.Label(status_frame, text="Modelo Ativo:").pack(side="left")
         self.model_label = ttk.Label(status_frame, text="DeepSeek-7B", foreground="#00FF00")
         self.model_label.pack(side="left", padx=5)
+
+        self.label = tk.Label(self.root, text="Digite sua pergunta:")
+        self.label.pack()
+
+        self.entry = tk.Entry(self.root)
+        self.entry.pack()
+
+        self.button = tk.Button(self.root, text="Enviar", command=self.send_text)
+        self.button.pack()
+
+        self.config_button = tk.Button(self.root, text="Configurações", command=self.open_config)
+        self.config_button.pack()
 
     def toggle_listening(self):
         self.is_listening = not self.is_listening
@@ -99,6 +112,31 @@ class VoiceAssistantGUI:
     def update_status(self):
         # Atualizações dinâmicas
         self.root.after(1000, self.update_status)
+
+    def send_text(self):
+        question = self.entry.get()
+        if question:
+            response = self.ai.generate_response(question)
+            messagebox.showinfo("Resposta", response)
+
+    def open_config(self):
+        config_window = tk.Toplevel(self.root)
+        config_window.title("Configurações")
+
+        tk.Label(config_window, text="Palavra de ativação:").pack()
+        activation_entry = tk.Entry(config_window)
+        activation_entry.pack()
+        activation_entry.insert(0, self.activation_word)
+
+        def save_config():
+            self.activation_word = activation_entry.get()
+            config_window.destroy()
+            messagebox.showinfo("Configurações", "Configurações salvas com sucesso!")
+
+        tk.Button(config_window, text="Salvar", command=save_config).pack()
+
+    def set_ai(self, ai):
+        self.ai = ai
 
 if __name__ == "__main__":
     root = tk.Tk()
